@@ -137,7 +137,7 @@ $domcategoria = new DOMDocument('1.0','UTF-8');
 $domcategoria->formatOutput = true;
 $domcategoria->preserveWhiteSpace = false;
 $domcategoria->formatOutput = true;
-$xslt = $domcategoria->createProcessingInstruction('xml-stylesheet', 'type="text/xsl" href="wp-content/themes/sanchezdonate/core/css/stylesheet.xsl"');
+$xslt = $domcategoria->createProcessingInstruction('xml-stylesheet', 'type="text/xsl" href="' . plugin_dir_url( __DIR__ ) . 'css/sitemap/stylesheet.xsl"');
 $domcategoria->appendChild($xslt);
 $rootcategoria = $domcategoria->createElement('urlset');
 $domcategoria->appendChild($rootcategoria);
