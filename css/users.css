@@ -1,7 +1,9 @@
-
+/*
 tr.user-url-wrap, tr.user-facebook-wrap, tr.user-instagram-wrap, tr.user-myspace-wrap, .user-pinterest-wrap, .user-wikipedia-wrap, .user-youtube-wrap, tr.user-language-wrap, li#menu-tools, tr.user-admin-color-wrap, tr.user-comment-shortcuts-wrap, .yoast.yoast-settings, tr.user-profile-picture, tr.user-display-name-wrap, .user-twitter-wrap, .user-tumblr-wrap, .user-soundcloud-wrap, .user-linkedin-wrap, #wpfooter, #toplevel_page_edit-post_type-acf-field-group, #menu-comments, #menu-appearance, #menu-settings, tr.show-admin-bar.user-admin-bar-front-wrap,#adminmenu .wp-submenu li:last-child, tr.user-rich-editing-wrap, tr.user-syntax-highlighting-wrap, tr.user-description-wrap, tr.user-last-name-wrap, li#wp-admin-bar-comments, tr#user-1, li#wp-admin-bar-customize, ul.wp-submenu.wp-submenu-wrap li:nth-child(4)
 {display: none !important;}
 
 
 
-#wpadminbar #wp-admin-bar-wp-logo>.ab-item .ab-icon:before{content:none !important;}
+#wpadminbar #wp-admin-bar-wp-logo>.ab-item .ab-icon:before{content:none !important;}*/
+
+@import url("https://carlos.sanchezdonate.com/wp-content/themes/sanchezdonate/carlos/css/main.css?202203v_1.00");

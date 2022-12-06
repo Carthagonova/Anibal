@@ -23,6 +23,9 @@ $mimes['ai'] = 'application/postscript'; //Adding AI file
 $mimes['avi'] = 'video/avi'; //Adding PDF file
 $mimes['zip'] = 'application/zip'; //Adding PDF file
 $mimes['otf'] = 'font/opentype'; //Adding PDF file
+$mimes['avif'] = 'image/avif'; //Adding avif file
+$mimes['jp2'] = 'image/jp2'; //Adding jp2 file
+$mimes['webp'] = 'image/webp'; //Adding webp file
 return $mimes;
 }
 add_filter('upload_mimes', 'cc_mime_types');

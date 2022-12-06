@@ -1,4 +1,6 @@
 <?php
+// Con esto las comillas bien
+remove_filter('the_content', 'wptexturize');
 
 // Con esta función añadimos el 'styleselect' al array de botones mostrados
 function custom_mce_buttons_2( $buttons ) {
@@ -47,6 +49,12 @@ $style_formats = array(
 			'wrapper' => true,
 			'classes' => 'columnader',  // Clase
 		),
+    array(
+      'title' => 'Codigo',  // Título
+      'block' => 'code',  // Elemento
+        //'wrapper' => true, //englobar todo
+      'classes' => 'codigo-post',  // Clase
+    ),
 	);
 	$init_array['style_formats'] = json_encode( $style_formats );
 	return $init_array;

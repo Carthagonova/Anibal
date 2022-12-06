@@ -1,0 +1,23 @@
+/* TEAM */
+
+Seo Tecnico: Carlos Manuel Sanchez Donate
+Site: https://www.linkedin.com/in/carlos-sanchez-donate/
+Location: Cartagena
+
+SEO: Roberto Martinez Gonzalez
+Site: https://www.linkedin.com/in/roberto-martinez-gonzalez/
+Location: Cartagena
+
+SEO y editora: Carla Alvarez Núñez
+Site: https://www.linkedin.com/in/especialista-seo-carla-alvarez-nu%C3%B1ez/
+Location: Caceres
+
+[...]
+
+/* SITE */
+
+Last update: 2022/11/30
+
+Standards: HTML5, CSS3, JS, PHP
+
+Components: WordPress, ACF, Jquery

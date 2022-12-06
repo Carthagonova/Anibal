@@ -1,0 +1,15 @@
+/*CSS en el back*/
+div#mceu_25 {
+    padding: 16px;
+    background: #faf7fb;
+}
+#wpadminbar #wp-admin-bar-wp-logo>.ab-item .ab-icon:before {
+    content: ""!important;
+    background: url(https://carlos.sanchezdonate.com/wp-content/themes/sanchezdonate/images/branding/nuevo/partes-independientes/simbolo/vector/simbolo-carlos-seo-blanco-faf7fb.svg);
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    position: fixed;
+    background-position: center;
+    background-size: contain;
+}
