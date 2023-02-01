@@ -6,6 +6,7 @@ $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
 $url_sin_string = $protocol . '://' . $_SERVER['HTTP_HOST'] . strtok($_SERVER["REQUEST_URI"], '?');
 $term = get_queried_object();
 $marcaweb = 'Mastering Money';
+
 ?>
 <link rel="alternate" hreflang="<?php echo $lang=get_bloginfo("language"); ?>" href="https:<?php echo $current_url="//".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" />
 <link rel="alternate" hreflang="x-default" href="<?php echo $url_sin_string ;/*echo $protocol. $current_url="//".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; */?>" />
@@ -74,6 +75,49 @@ function wp_seofooter() {
 
 echo '<!-- SEO footertags by Asdrubal SEO SL-->';
 the_field( 'custom_meta_footer' );
+
+
+
+
+// Revisar en cada proyecto
+
+if ( is_singular('post') ) {
+
+// Ineficiente. Crearemos una constante en el futuro
+// Repetimos la llamada porque está en otra función
+  $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
+  $url_sin_string = $protocol . '://' . $_SERVER['HTTP_HOST'] . strtok($_SERVER["REQUEST_URI"], '?');
+  $term = get_queried_object();
+  $marcaweb = 'Mastering Money';
+
+  ?>
+  <script type="application/ld+json">
+ {
+     "@context": "https://schema.org",
+     "@type": "NewsArticle",
+     "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "<?php if ( get_field( 'canonical', $term ) ){the_field( 'canonical', $term);} else{echo $url_sin_string;}?>"
+     },
+     "headline": "<?php the_title(); ?>",
+     "image": [
+         "<?php if ( get_field( 'open_graph', $term ) ){the_field( 'open_graph', $term );} else{echo plugin_dir_url( __DIR__ ) . 'img/og.jpg';}?>"
+     ],
+     "datePublished": "<?php echo get_the_date('c'); ?>",
+     "dateModified": "<?php echo get_the_modified_date('c'); ?>",
+     "author": {
+         "@type": "Organization",
+         "name": "<?php if ( get_field( 'author_json' ) ){the_field( 'author_json' );} else{echo "$marcaweb";}?>",
+         "url": "<?php if ( get_field( 'url_author_json' ) ){the_field( 'url_author_json' );} else{echo 'https://' . $_SERVER['SERVER_NAME'] ;}?>"
+     },
+     "description": "<?php the_field("metadescription"); ?>"
+ }
+ </script>
+ <?php
+}else {;}
+
+
+
 
 }
 
