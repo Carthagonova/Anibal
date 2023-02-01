@@ -5,10 +5,11 @@ $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
 //$protocol = 'https://';
 $url_sin_string = $protocol . '://' . $_SERVER['HTTP_HOST'] . strtok($_SERVER["REQUEST_URI"], '?');
 $term = get_queried_object();
+$marcaweb = 'Mastering Money';
 ?>
 <link rel="alternate" hreflang="<?php echo $lang=get_bloginfo("language"); ?>" href="https:<?php echo $current_url="//".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" />
 <link rel="alternate" hreflang="x-default" href="<?php echo $url_sin_string ;/*echo $protocol. $current_url="//".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; */?>" />
-<meta name="author" content="Mastering Money">
+<meta name="author" content="<?php echo $marcaweb ;?>">
 <link type="text/plain" rel="author" href="<?php echo plugin_dir_url( __DIR__ );?>author/humans.txt" />
 
 <!-- Custom Metatags -->
@@ -16,7 +17,7 @@ $term = get_queried_object();
 <?php if ( get_field( 'title', $term ) ){the_field( 'title', $term );
 } else{ wp_title(''); }
  ?>
- - Mastering Money
+ - <?php echo $marcaweb ;?>
 </title>
 
 
@@ -42,13 +43,13 @@ if ( $metarobots_checked_values ) : ?>
 <?php /* #Cambio Poner un if con la imagen generica de la web y otro if genérico para el image alt de twitter*/ ?>
 <meta property="og:image" content="<?php if ( get_field( 'open_graph', $term ) ){the_field( 'open_graph', $term );} else{echo plugin_dir_url( __DIR__ ) . 'img/og.jpg';}?>"/>
 <meta property="og:image:secure_url" content="<?php if ( get_field( 'open_graph', $term ) ){the_field( 'open_graph', $term );} else{echo plugin_dir_url( __DIR__ ) . 'img/og.jpg';}?>"/>
-<meta property="og:image:alt" content="<?php if ( get_field( 'og_image_alt', $term ) ){the_field( 'og_image_alt', $term );} else{echo 'Mastering Money web';}?>"/>
+<meta property="og:image:alt" content="<?php if ( get_field( 'og_image_alt', $term ) ){the_field( 'og_image_alt', $term );} else{echo '<?php echo $marcaweb ;?> web';}?>"/>
 <meta property="twitter:image" content="<?php if ( get_field( 'twitter_card', $term ) ){the_field( 'twitter_card', $term );}elseif(get_field( 'open_graph', $term)){the_field( 'open_graph', $term);}else{echo plugin_dir_url( __DIR__ ) . 'img/og.jpg';}?>">
 
 
 <meta property="twitter:card" content="summary_large_image">
 <meta property="og:type" content="website"/>
-<!-- Ajustar a Mastering money -->
+<!-- Ajustar a <?php echo $marcaweb ;?> -->
 <meta name="twitter:site" content="">
 <meta name="twitter:creator" content="">
 
