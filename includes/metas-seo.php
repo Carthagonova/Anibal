@@ -12,7 +12,7 @@ $marcaweb = 'Mastering Money';
 <meta name="author" content="<?php echo $marcaweb ;?>">
 <link type="text/plain" rel="author" href="<?php echo plugin_dir_url( __DIR__ );?>author/humans.txt" />
 
-<!-- Custom Metatags -->
+<!-- Custom Metatags by Asdrubal SEO SL -->
 <title>
 <?php if ( get_field( 'title', $term ) ){the_field( 'title', $term );
 } else{ wp_title(''); }
@@ -43,7 +43,7 @@ if ( $metarobots_checked_values ) : ?>
 <?php /* #Cambio Poner un if con la imagen generica de la web y otro if genérico para el image alt de twitter*/ ?>
 <meta property="og:image" content="<?php if ( get_field( 'open_graph', $term ) ){the_field( 'open_graph', $term );} else{echo plugin_dir_url( __DIR__ ) . 'img/og.jpg';}?>"/>
 <meta property="og:image:secure_url" content="<?php if ( get_field( 'open_graph', $term ) ){the_field( 'open_graph', $term );} else{echo plugin_dir_url( __DIR__ ) . 'img/og.jpg';}?>"/>
-<meta property="og:image:alt" content="<?php if ( get_field( 'og_image_alt', $term ) ){the_field( 'og_image_alt', $term );} else{echo '<?php echo $marcaweb ;?> web';}?>"/>
+<meta property="og:image:alt" content="<?php if ( get_field( 'og_image_alt', $term ) ){the_field( 'og_image_alt', $term );} else{echo $marcaweb ;}?>"/>
 <meta property="twitter:image" content="<?php if ( get_field( 'twitter_card', $term ) ){the_field( 'twitter_card', $term );}elseif(get_field( 'open_graph', $term)){the_field( 'open_graph', $term);}else{echo plugin_dir_url( __DIR__ ) . 'img/og.jpg';}?>">
 
 
@@ -63,4 +63,19 @@ if ( $metarobots_checked_values ) : ?>
 //do something just on a category archive page }
 add_action('wp_head', 'wp_seohead'); //hook que lanza la funcion y carga el contenido en el head
 
+
+
+
+
+
+
+// Cosas SEO del Footer
+function wp_seofooter() {
+
+echo '<!-- SEO footertags by Asdrubal SEO SL-->';
+the_field( 'custom_meta_footer' );
+
+}
+
+add_action('wp_footer', 'wp_seofooter');
 ?>
