@@ -1,4 +1,4 @@
-<?php 
+<?php
 function wp_seohead() {
 //Esto se llama desde header.php
 $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
@@ -12,7 +12,14 @@ $term = get_queried_object();
 <link type="text/plain" rel="author" href="<?php echo plugin_dir_url( __DIR__ );?>author/humans.txt" />
 
 <!-- Custom Metatags -->
-<title><?php the_field( 'title', $term ); ?> - Mastering Money</title>
+<title>
+<?php if ( get_field( 'title', $term ) ){the_field( 'title', $term );
+} else{ wp_title(''); }
+ ?>
+ - Mastering Money
+</title>
+
+
 <?php the_field( 'custom_meta', $term ); ?>
 
 <?php $metarobots_checked_values = get_field( 'metarobots', $term );
