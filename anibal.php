@@ -52,6 +52,9 @@ include 'includes/files.php';
 include 'includes/heartbeat.php';
 // Imperdir la actualización de plugins
 // include 'includes/unupdate-plugins.php';
+// Tabla de contenidos lwptoc
+// include 'includes/tabla-contenidos.php';
+
 
 // Comprobar plugins
 // De momento está el fallo de que siempre te los instala, tenemos que hacer que compruebe si está descargado, para no hacerlo si lo está

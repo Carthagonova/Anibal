@@ -5,7 +5,7 @@ $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
 //$protocol = 'https://';
 $url_sin_string = $protocol . '://' . $_SERVER['HTTP_HOST'] . strtok($_SERVER["REQUEST_URI"], '?');
 $term = get_queried_object();
-$marcaweb = 'Mastering Money';
+$marcaweb = 'EMPRESANOMBRE';
 
 ?>
 <link rel="alternate" hreflang="<?php echo $lang=get_bloginfo("language"); ?>" href="https:<?php echo $current_url="//".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" />
@@ -72,54 +72,67 @@ add_action('wp_head', 'wp_seohead'); //hook que lanza la funcion y carga el cont
 
 // Cosas SEO del Footer
 function wp_seofooter() {
+    //Esto se llama desde header.php
+$protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
+//$protocol = 'https://';
+$url_sin_string = $protocol . '://' . $_SERVER['HTTP_HOST'] . strtok($_SERVER["REQUEST_URI"], '?');
+$term = get_queried_object();
+$proyectoname = "Mastering Money";
 
-echo '<!-- SEO footertags by Asdrubal SEO SL-->';
-the_field( 'custom_meta_footer' );
-
-
-
-
-// Revisar en cada proyecto
-
-if ( is_singular('post') ) {
-
-// Ineficiente. Crearemos una constante en el futuro
-// Repetimos la llamada porque está en otra función
-  $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
-  $url_sin_string = $protocol . '://' . $_SERVER['HTTP_HOST'] . strtok($_SERVER["REQUEST_URI"], '?');
-  $term = get_queried_object();
-  $marcaweb = 'Mastering Money';
-
-  ?>
-  <script type="application/ld+json">
- {
-     "@context": "https://schema.org",
-     "@type": "NewsArticle",
-     "mainEntityOfPage": {
-         "@type": "WebPage",
-         "@id": "<?php if ( get_field( 'canonical', $term ) ){the_field( 'canonical', $term);} else{echo $url_sin_string;}?>"
-     },
-     "headline": "<?php the_title(); ?>",
-     "image": [
-         "<?php if ( get_field( 'open_graph', $term ) ){the_field( 'open_graph', $term );} else{echo plugin_dir_url( __DIR__ ) . 'img/og.jpg';}?>"
-     ],
-     "datePublished": "<?php echo get_the_date('c'); ?>",
-     "dateModified": "<?php echo get_the_modified_date('c'); ?>",
-     "author": {
-         "@type": "Organization",
-         "name": "<?php if ( get_field( 'author_json' ) ){the_field( 'author_json' );} else{echo "$marcaweb";}?>",
-         "url": "<?php if ( get_field( 'url_author_json' ) ){the_field( 'url_author_json' );} else{echo 'https://' . $_SERVER['SERVER_NAME'] ;}?>"
-     },
-     "description": "<?php the_field("metadescription"); ?>"
- }
- </script>
- <?php
-}else {;}
+ the_field( 'custom_meta_footer', $term );
 
 
+?>
+  <?php
+if ( is_home() || ( is_front_page() && is_page() ) ) {
+    // hacer algo si es la página principal
+    // No funciona por algún motivo extraño
 
+?>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EMPRESANOMBRE",
+  "url": "<?php echo $url_sin_string;?>",
+  "logo": "<?php echo get_template_directory_uri(); ?>/images/logo.png"
 
 }
+</script>
+<?php
+ ; }
+ elseif ( is_singular() || is_category() ){
+    // hacer algo si es una publicación o categoría
+?>
 
-add_action('wp_footer', 'wp_seofooter');
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "<?php echo $url_sin_string;?>"
+    },
+    "headline": "<?php the_title(); ?>",
+    "image": [
+        "<?php the_field('open_graph', $term ); ?>"
+    ],
+    "datePublished": "<?php echo get_the_date('c'); ?>",
+    "dateModified": "<?php echo get_the_modified_date('c'); ?>",
+    "description": "<?php the_field("metadescription", $term ); ?>"
+}
+</script>
+<?php
+;}
+
+ else {
+    // hacer otra cosa si no es una publicación, categoría o la página principal
+
+  }
+
+}
+//do something just on a category archive page }
+add_action('wp_footer', 'wp_seofooter'); //hook que lanza la funcion y carga el contenido en el head
+
 ?>
