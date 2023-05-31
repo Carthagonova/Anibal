@@ -42,30 +42,25 @@ $argsblog = array(
 'post_status' => 'publish',
 );
 $obtencionblog = new WP_Query( $argsblog );
-if ( $obtencionblog-> have_posts() ) : ?>
-<?php while ( $obtencionblog->have_posts() ) : $obtencionblog->the_post();
-
-if ( ! get_field( "canonical" )){
- $metarobots_checked_values = get_field( 'metarobots' );
-if ( $metarobots_checked_values && in_array('all', $metarobots_checked_values) ) {
-  $enlace = get_permalink();
-  $lastestmod = get_the_modified_date('Y-m-d');
-  $resultblog = $domblog->createElement('url');
-  $rootblog->appendChild($resultblog);
-  $resultblog->appendChild( $domblog->createElement('loc', $enlace) );
-  $resultblog->appendChild( $domblog->createElement('lastmod', $lastestmod) );
+if ($obtencionblog->have_posts()) {
+  while ($obtencionblog->have_posts()) {
+      $obtencionblog->the_post();
+      
+      if (!get_field("canonical")) {
+          $metarobots_checked_values = get_field('metarobots');
+          if ($metarobots_checked_values && in_array('all', $metarobots_checked_values) || in_array('index', $metarobots_checked_values)) {
+              $enlace = get_permalink();
+              $lastestmod = get_the_modified_date('Y-m-d');
+              $resultblog = $domblog->createElement('url');
+              $rootblog->appendChild($resultblog);
+              $resultblog->appendChild($domblog->createElement('loc', $enlace));
+              $resultblog->appendChild($domblog->createElement('lastmod', $lastestmod));
+          }
+      }
+  }
+  wp_reset_postdata();
 }
-elseif( $metarobots_checked_values && in_array('index', $metarobots_checked_values) ) {
-  $enlace = get_permalink();
-  $lastestmod = get_the_modified_date('Y-m-d');
-  $resultblog = $domblog->createElement('url');
-  $rootblog->appendChild($resultblog);
-  $resultblog->appendChild( $domblog->createElement('loc', $enlace) );
-  $resultblog->appendChild( $domblog->createElement('lastmod', $lastestmod) );
-} else{;}}
-else{;}
-endwhile;
-endif; wp_reset_postdata();
+
 
   echo '<code class="codigo-post"><xmp>'. $domblog->saveXML() .'</xmp></code>';
   echo  '<a class="exitbutton" href="' . $rutita . '/sitemap-posts.xml" target="_blank">Comprobar Sitemap</a>';
