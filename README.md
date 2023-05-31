@@ -1,4 +1,13 @@
 ***************************
+Version: 1.0.7.0
+- Generación de data nosnippet para plugin LuckyWP Table of Contents (Tabla de contenidos)
+- Mejora y añadido de metaetiquetas
+- Añadido de nombre de Marca de la empresa
+- Mejora CSS Sitemap personalizado
+- Añadido de Sitemap personalizado
+- Mejora de Backend
+- Eliminación de que Yoast SEO ponga el og:image que le da la gana
+***************************
 Version: 1.0.6.5
 - Testeo forzar descargas
 - Codigo included
