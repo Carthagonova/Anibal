@@ -18,6 +18,7 @@ $marcaweb = 'EMPRESANOMBRE';
 <?php if ( get_field( 'title', $term ) ){the_field( 'title', $term );
 } else{ wp_title(''); }
  ?>
+ - <?php echo $marcaweb ;?>
 </title>
 
 
