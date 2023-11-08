@@ -3,7 +3,7 @@
 Plugin Name: Anibal
 Plugin URI:
 Description: Multiplugin.
-Author: Carlos Sánchez, Roberto Martinez y Carla Álvarez
+Author: Asdrubal SEO SL
 Author URI: https://carlos.sanchezdonate.com
 Version: 2.0.6.5
 License: GPLv2

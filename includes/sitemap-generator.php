@@ -45,7 +45,7 @@ $obtencionblog = new WP_Query( $argsblog );
 if ($obtencionblog->have_posts()) {
   while ($obtencionblog->have_posts()) {
       $obtencionblog->the_post();
-      
+
       if (!get_field("canonical")) {
           $metarobots_checked_values = get_field('metarobots');
           if ($metarobots_checked_values && in_array('all', $metarobots_checked_values) || in_array('index', $metarobots_checked_values)) {
@@ -178,6 +178,75 @@ elseif( $metarobots_checked_values && in_array('index', $metarobots_checked_valu
   echo  '<a class="exitbutton" href="' . $rutita . '/sitemap-categorias.xml" target="_blank">Comprobar Sitemap</a>';
 $domcategoria->save('sitemap-categorias.xml') or die('XML Create Error');
 
+
+
+echo "<hr></p><h2>noticia</h2>";
+$domnoticia = new DOMDocument('1.0','UTF-8');
+$domnoticia->formatOutput = true;
+$domnoticia->preserveWhiteSpace = false;
+$domnoticia->formatOutput = true;
+$xslt = $domnoticia->createProcessingInstruction('xml-stylesheet', 'type="text/xsl" href="wp-content/themes/sanchezdonate/core/css/stylesheet.xsl"');
+$domnoticia->appendChild($xslt);
+$rootnoticia = $domnoticia->createElement('urlset');
+$domnoticia->appendChild($rootnoticia);
+$rootnoticia->setAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
+$rootnoticia->setAttribute('xmlns:news', 'http://www.google.com/schemas/sitemap-news/0.9');
+$rootnoticia->setAttribute('xmlns:image', 'http://www.google.com/schemas/sitemap-image/1.1');
+
+//$resultnoticia->setAttribute('id', 1);
+$argsnoticia = array(
+  'posts_per_page' => -1,
+  //'post__not_in' => array($post->ID), // Ensure that the current post is not displayed
+  'post_type' => 'Noticia',
+  'orderby' => 'date',
+  'order'   => 'DESC',
+'post_status' => 'publish',
+);
+$obtencionnoticia = new WP_Query( $argsnoticia );
+if ($obtencionnoticia->have_posts()) {
+  while ($obtencionnoticia->have_posts()) {
+      $obtencionnoticia->the_post();
+
+      $metarobots_checked_values = get_field('metarobots');
+      if ($metarobots_checked_values && in_array('all', $metarobots_checked_values) || in_array('index', $metarobots_checked_values)) {
+          $enlace = get_permalink();
+          $lastestmod = get_the_modified_date('Y-m-d');
+          $resultnoticia = $domnoticia->createElement('url');
+          $rootnoticia->appendChild($resultnoticia);
+          $resultnoticia->appendChild($domnoticia->createElement('loc', $enlace));
+          $resultnoticia->appendChild($domnoticia->createElement('lastmod', $lastestmod));
+
+                    // Añadir estructura adicional dentro de <news:news>
+                    $newsElement = $domnoticia->createElement('news:news');
+                    $resultnoticia->appendChild($newsElement);
+                    $titulonoticia = get_the_title();
+                    $publishednoticia = get_the_modified_date('Y-m-d\TH:i:s.uP');
+                    $newstitle = get_field( 'title');
+
+                    // Definir las variables dentro de <news:news> según tus necesidades
+                    $publicationElement = $domnoticia->createElement('news:publication');
+                    $publicationNameElement = $domnoticia->createElement('news:name', $titulonoticia);
+                    $publicationLanguageElement = $domnoticia->createElement('news:language', 'es');
+                    $publicationElement->appendChild($publicationNameElement);
+                    $publicationElement->appendChild($publicationLanguageElement);
+                    $newsElement->appendChild($publicationElement);
+
+                    $publicationDateElement = $domnoticia->createElement('news:publication_date', $publishednoticia);
+                    $newsElement->appendChild($publicationDateElement);
+
+                    $titleElement = $domnoticia->createElement('news:title', $newstitle);
+                    $newsElement->appendChild($titleElement);
+
+
+      }
+  }
+  wp_reset_postdata();
+}
+
+
+  echo '<div class="codigo-post"><xmp>'. $domnoticia->saveXML() .'</xmp></div>';
+  echo  '<a href="' . $rutita . '/sitemap-news.xml" target="_blank">Comprobar Sitemap</a>';
+$domnoticia->save('sitemap-news.xml') or die('XML Create Error');
 
 
 ?>
