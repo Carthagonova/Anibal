@@ -16,6 +16,8 @@ License: GPLv2
 
 // Generador de Sitemaps por medio de template
 include 'includes/template-generator.php';
+// Permitir scripts en acf
+include 'includes/acf-ajuste.php';
 // Generador de metaetiquetas
 include 'includes/metas-seo.php';
 // Quitar mierdas varias de Wordpress
