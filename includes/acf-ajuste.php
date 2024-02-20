@@ -1,3 +1,9 @@
 <?php
-apply_filters( 'acf/the_field/allow_unsafe_html', false, $selector, $post_id, $attributes, $field_type, $field_object );
+// Permitir insertar scripts
+function my_acf_allow_unsafe_html( $field ) {
+    // Aquí puedes añadir lógica adicional si solo quieres permitir HTML inseguro bajo ciertas condiciones
+    return true; // Cambiar a true permite HTML inseguro
+}
+
+add_filter( 'acf/allow_unsafe_html', 'my_acf_allow_unsafe_html', 10, 1 );
 ?>
