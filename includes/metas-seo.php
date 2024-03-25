@@ -77,7 +77,7 @@ $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
 //$protocol = 'https://';
 $url_sin_string = $protocol . '://' . $_SERVER['HTTP_HOST'] . strtok($_SERVER["REQUEST_URI"], '?');
 $term = get_queried_object();
-$proyectoname = "Mastering Money";
+$proyectoname = "EMPRESANOMBRE";
 
  the_field( 'custom_meta_footer', $term );
 
