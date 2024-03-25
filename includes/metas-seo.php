@@ -79,7 +79,7 @@ $url_sin_string = $protocol . '://' . $_SERVER['HTTP_HOST'] . strtok($_SERVER["R
 $term = get_queried_object();
 $proyectoname = "EMPRESANOMBRE";
 
- the_field( 'custom_meta_footer', $term );
+echo get_field( 'custom_meta_footer', $term );
 
 
 ?>
