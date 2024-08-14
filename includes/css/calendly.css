@@ -1,0 +1,65 @@
+.adr-fake-h2{
+    font-weight: 400;
+    margin:auto;
+    margin-top: 3rem;
+    margin-bottom: .5rem;
+    line-height: 1.25;
+    font-size: var(--s5);
+    text-transform: uppercase;
+    font-family: "Bebas Neue", sans-serif;
+    font-style: normal;
+    letter-spacing: 0em;
+    text-align:center;
+}
+.adr-fake-h3{
+    letter-spacing: 0em;
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.25;
+    font-family: "Bebas Neue", sans-serif;
+    font-style: normal;
+    text-transform: uppercase;
+}
+.calendly-booking-container {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: auto;
+}
+
+.calendly-options {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.adr-cl-desc {
+    font-size: 16px;
+    margin: 15px auto;
+    text-align: center;
+    color: var(--color-mid);
+}
+.calendly-options button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.calendly-options .active {
+    background-color: rgba(184,70,0,0.95);
+    color: white;
+}
+
+.calendly-iframe {
+    display: none;
+}
+.calendly-iframe .calendly-inline-widget{
+    margin:auto;
+
+}
+.calendly-iframe.active {
+    display: block;
+}
+.calendly-info {
+    min-height: 700px;
+}

@@ -59,7 +59,26 @@ if ( $metarobots_checked_values ) : ?>
 
 }
 
-
+    if (isset($_GET['hash'])) {
+?>
+   <script type="text/javascript">
+// Obtener la URL actual
+let currentUrl = window.location.href;
+// Buscar la posición del parámetro "?hash="
+let hashIndex = currentUrl.indexOf("?hash=");
+// Verificar si el parámetro "?hash=" existe en la URL
+if (hashIndex !== -1) {
+    // Obtener el valor del hash
+    let hashValue = currentUrl.substring(hashIndex + 6);
+    // Construir la nueva URL reemplazando "?hash=" por "#"
+    let newUrl = currentUrl.substring(0, hashIndex) + "#" + hashValue;
+    // Redirigir a la nueva URL
+    window.location.href = newUrl;
+}
+    </script>
+    <?php
+    }
+    
 
 //do something just on a category archive page }
 add_action('wp_head', 'wp_seohead'); //hook que lanza la funcion y carga el contenido en el head
