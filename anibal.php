@@ -15,7 +15,7 @@ License: GPLv2
 // include 'includes/del-coments.php';
 
 // Generador de Sitemaps por medio de template
-include 'includes/template-generator.php';
+//include 'includes/template-generator.php';
 // Permitir scripts en acf
 include 'includes/acf-ajuste.php';
 // Generador de metaetiquetas
@@ -47,11 +47,11 @@ include 'includes/del-sitemap.php';
 // Generar Shortcodes
 // include 'includes/shortcodes.php';
 // Permitir SVG con movimiento y otros archivos
-include 'includes/files.php';
+//include 'includes/files.php';
 // Force Downloads
 // include 'includes/force.php';
 // Cambiar Heartbeat
-include 'includes/heartbeat.php';
+//include 'includes/heartbeat.php';
 // Imperdir la actualización de plugins
 // include 'includes/unupdate-plugins.php';
 // Tabla de contenidos lwptoc

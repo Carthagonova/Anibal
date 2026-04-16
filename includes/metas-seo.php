@@ -5,7 +5,7 @@ $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
 //$protocol = 'https://';
 $url_sin_string = $protocol . '://' . $_SERVER['HTTP_HOST'] . strtok($_SERVER["REQUEST_URI"], '?');
 $term = get_queried_object();
-$marcaweb = 'EMPRESANOMBRE';
+$marcaweb = 'CON PUNTO G';
 
 ?>
 <link rel="alternate" hreflang="<?php echo $lang=get_bloginfo("language"); ?>" href="https:<?php echo $current_url="//".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" />
@@ -96,7 +96,7 @@ $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
 //$protocol = 'https://';
 $url_sin_string = $protocol . '://' . $_SERVER['HTTP_HOST'] . strtok($_SERVER["REQUEST_URI"], '?');
 $term = get_queried_object();
-$proyectoname = "EMPRESANOMBRE";
+$proyectoname = "CON PUNTO G";
 
 echo get_field( 'custom_meta_footer', $term );
 
@@ -113,11 +113,11 @@ if ( is_home() || ( is_front_page() && is_page() ) ) {
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "EMPRESANOMBRE",
+  "name": "CON PUNTO G",
   "url": "<?php echo $url_sin_string;?>",
   "logo": "<?php echo get_template_directory_uri(); ?>/images/logo.png"
 
-}
+}rdgrf
 </script>
 <?php
  ; }

@@ -5,22 +5,23 @@ Site: https://www.linkedin.com/in/carlos-sanchez-donate/
 Site: https://carlos.sanchezdonate.com/
 Location: Cartagena
 
-SEO: Roberto Martinez Gonzalez
+Seo Tecnico: Roberto Martinez Gonzalez
 Site: https://www.linkedin.com/in/roberto-martinez-gonzalez/
 Location: Cartagena
 
-SEO estrategica: Carla Alvarez Nunez
-Site: https://www.linkedin.com/in/especialista-seo-carla-alvarez-nu%C3%B1ez/
-Location: Caceres
+Seo Tecnico: Sandra Santos Rodriguez
+Site: https://www.linkedin.com/in/sandra-santos-rodriguez/
+Location: Salamanca
 
-Desarrollador web: Raul Skelly Burgos 
-Site: https://www.linkedin.com/in/ra%C3%BAl-skelly-4894b4a5/
+Desarrollador web: Nuria Urreta
+Site: https://www.linkedin.com/in/nuria-urreta/
+location: Bilbao
 
 [...]
 
 /* SITE */
 
-Last update: 2022/11/30
+Last update: 2026/04/16
 
 Standards: HTML5, CSS3, JS, PHP
 
